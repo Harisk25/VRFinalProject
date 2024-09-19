@@ -1362,7 +1362,7 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-    m_Reference: {fileID: 1169650999489362647, guid: c348712bda248c246b8c49b3db54643f,
+    m_Reference: {fileID: 6007615477780472275, guid: c348712bda248c246b8c49b3db54643f,
       type: 3}
 --- !u!4 &129356060
 Transform:
@@ -1745,9 +1745,9 @@ MonoBehaviour:
   m_PlayAudioClipOnHoverCanceled: 0
   m_AudioClipForOnHoverCanceled: {fileID: 0}
   m_AllowHoverAudioWhileSelecting: 1
-  m_PlayHapticsOnSelectEntered: 0
-  m_HapticSelectEnterIntensity: 0
-  m_HapticSelectEnterDuration: 0
+  m_PlayHapticsOnSelectEntered: 1
+  m_HapticSelectEnterIntensity: 0.7
+  m_HapticSelectEnterDuration: 0.3
   m_PlayHapticsOnSelectExited: 0
   m_HapticSelectExitIntensity: 0
   m_HapticSelectExitDuration: 0
@@ -1763,7 +1763,7 @@ MonoBehaviour:
   m_PlayHapticsOnHoverCanceled: 0
   m_HapticHoverCancelIntensity: 0
   m_HapticHoverCancelDuration: 0
-  m_AllowHoverHapticsWhileSelecting: 1
+  m_AllowHoverHapticsWhileSelecting: 0
   m_ImproveAccuracyWithSphereCollider: 0
   m_PhysicsLayerMask:
     serializedVersion: 2
@@ -4502,9 +4502,9 @@ MonoBehaviour:
   m_PlayAudioClipOnHoverCanceled: 0
   m_AudioClipForOnHoverCanceled: {fileID: 0}
   m_AllowHoverAudioWhileSelecting: 1
-  m_PlayHapticsOnSelectEntered: 0
-  m_HapticSelectEnterIntensity: 0
-  m_HapticSelectEnterDuration: 0
+  m_PlayHapticsOnSelectEntered: 1
+  m_HapticSelectEnterIntensity: 0.7
+  m_HapticSelectEnterDuration: 0.3
   m_PlayHapticsOnSelectExited: 0
   m_HapticSelectExitIntensity: 0
   m_HapticSelectExitDuration: 0
@@ -4520,7 +4520,7 @@ MonoBehaviour:
   m_PlayHapticsOnHoverCanceled: 0
   m_HapticHoverCancelIntensity: 0
   m_HapticHoverCancelDuration: 0
-  m_AllowHoverHapticsWhileSelecting: 1
+  m_AllowHoverHapticsWhileSelecting: 0
   m_ImproveAccuracyWithSphereCollider: 0
   m_PhysicsLayerMask:
     serializedVersion: 2

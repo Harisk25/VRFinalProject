@@ -6,8 +6,7 @@ public class LightBeam : MonoBehaviour
 {
 
     [Header("Light Beam Settings")]
-    public LayerMask layerMaskReflect;
-    public LayerMask layerMaskNoReflect;
+    public LayerMask layerMask;
     public float defualtLength = 50;
     public int numOfReflection = 10;
 
@@ -38,12 +37,20 @@ public class LightBeam : MonoBehaviour
 
         for (int i = 0; i < numOfReflection; i++)
         {
-            if (Physics.Raycast(ray.origin, ray.direction, out hit, remainLenght, layerMaskReflect))
+            if (Physics.Raycast(ray.origin, ray.direction, out hit, remainLenght, layerMask))
             {
                 lineRenderer.positionCount += 1;
                 lineRenderer.SetPosition(lineRenderer.positionCount-1, hit.point);
-                remainLenght -= Vector3.Distance(ray.origin, hit.point);
-                ray = new Ray(hit.point, Vector3.Reflect(ray.direction, hit.normal));
+                if (hit.transform.tag == "Mirror")
+                {
+                    remainLenght -= Vector3.Distance(ray.origin, hit.point);
+                    ray = new Ray(hit.point, Vector3.Reflect(ray.direction, hit.normal));
+                }
+                if (hit.transform.tag == "Target")
+                {
+                    hit.transform.GetComponent<Renderer>().material.color = Color.green;
+                }
+
             }
             else
             {
@@ -57,7 +64,7 @@ public class LightBeam : MonoBehaviour
     {
         lineRenderer.SetPosition(0, transform.position);
 
-        if (Physics.Raycast(transform.position, transform.forward, out hit, defualtLength, layerMaskNoReflect))
+        if (Physics.Raycast(transform.position, transform.forward, out hit, defualtLength, layerMask))
         {
             lineRenderer.SetPosition(1, hit.point);
         }

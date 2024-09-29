@@ -8,6 +8,7 @@ TagManager:
   - Left Hand
   - Mirror
   - Target
+  - Refract
   layers:
   - Default
   - TransparentFX

@@ -15,6 +15,12 @@ public class LightBeam : MonoBehaviour
 
     private Ray ray;
 
+    Dictionary<string, float> refractiveMaterials = new Dictionary<string, float>()
+    {
+        {"Air", 1.0f },
+        {"Glass", 1.5f }
+    };
+
 
     // Start is called before the first frame update
     void Start()
@@ -41,10 +47,44 @@ public class LightBeam : MonoBehaviour
             {
                 lineRenderer.positionCount += 1;
                 lineRenderer.SetPosition(lineRenderer.positionCount-1, hit.point);
-                if (hit.transform.tag == "Mirror")
+                if (hit.transform.tag == "Mirror") // reflect the ray
                 {
                     remainLenght -= Vector3.Distance(ray.origin, hit.point);
                     ray = new Ray(hit.point, Vector3.Reflect(ray.direction, hit.normal));
+                }
+                else if(hit.transform.tag == "Refract") // refract the ray
+                {   
+                    // get position slightly in cube
+                    Vector3 newPos1 = new Vector3(Mathf.Abs(ray.direction.x) / (ray.direction.x + 0.0001f) * 0.001f + hit.point.x, Mathf.Abs(ray.direction.y) / (ray.direction.y + 0.0001f) * 0.001f + hit.point.y, Mathf.Abs(ray.direction.z) / (ray.direction.z + 0.0001f) * 0.001f + hit.point.z); 
+
+                    // get Refractive index
+                    float n1 = refractiveMaterials["Air"];
+                    float n2 = refractiveMaterials["Glass"];
+
+                    Vector3 norm = hit.normal;
+                    Vector3 incident = ray.direction;
+
+                    Vector3 refractedVector = Refract(n1, n2, norm, incident);
+                    // cast first ray that is inside the cube
+                    ray = new Ray(newPos1, refractedVector);
+                    // now cast second ray to find the exit point for the inside ray
+                    Vector3 newRayStartPos = ray.GetPoint(0.3f);
+                    Ray ray2 = new Ray(newRayStartPos, -refractedVector);
+
+                    RaycastHit hit2;
+
+                    if (Physics.Raycast(ray2, out hit2, 0.3f, layerMask))
+                    {
+                        lineRenderer.positionCount += 1;
+                        lineRenderer.SetPosition(lineRenderer.positionCount - 1, hit2.point);
+                        
+                    }
+                    // get refraction of ray when ray exits cube
+                    Vector3 refractedVector2 = Refract(n2, n1, -hit2.normal, refractedVector);
+                   
+                    Debug.Log(refractedVector2);
+                    ray = new Ray(hit2.point, refractedVector2); // cast new ray that leaves the cube
+
                 }
                 if (hit.transform.tag == "Target")
                 {
@@ -52,7 +92,7 @@ public class LightBeam : MonoBehaviour
                 }
 
             }
-            else
+            else // nothing in rays path
             {
                 lineRenderer.positionCount += 1;
                 lineRenderer.SetPosition(lineRenderer.positionCount - 1, ray.origin + (ray.direction * remainLenght));
@@ -72,5 +112,13 @@ public class LightBeam : MonoBehaviour
         {
             lineRenderer.SetPosition(1, transform.position + (transform.forward * defualtLength));
         }
+    }
+
+    public static Vector3 Refract(float RI1, float RI2, Vector3 surfNorm, Vector3 incident)
+    {
+        surfNorm.Normalize(); //should already be normalized, but normalize just to be sure
+        incident.Normalize();
+
+        return (RI1 / RI2 * Vector3.Cross(surfNorm, Vector3.Cross(-surfNorm, incident)) - surfNorm * Mathf.Sqrt(1 - Vector3.Dot(Vector3.Cross(surfNorm, incident) * (RI1 / RI2 * RI1 / RI2), Vector3.Cross(surfNorm, incident)))).normalized;
     }
 }

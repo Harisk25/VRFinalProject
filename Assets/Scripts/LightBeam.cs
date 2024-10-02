@@ -7,6 +7,7 @@ public class LightBeam : MonoBehaviour
 
     [Header("Light Beam Settings")]
     public LayerMask layerMask;
+    public LayerMask layerMaskRefract;
     public float defualtLength = 50;
     public int numOfReflection = 10;
 
@@ -73,7 +74,7 @@ public class LightBeam : MonoBehaviour
 
                     RaycastHit hit2;
 
-                    if (Physics.Raycast(ray2, out hit2, 0.3f, layerMask))
+                    if (Physics.Raycast(ray2, out hit2, 0.3f, layerMaskRefract))
                     {
                         lineRenderer.positionCount += 1;
                         lineRenderer.SetPosition(lineRenderer.positionCount - 1, hit2.point);
@@ -81,10 +82,28 @@ public class LightBeam : MonoBehaviour
                     }
                     // get refraction of ray when ray exits cube
                     Vector3 refractedVector2 = Refract(n2, n1, -hit2.normal, refractedVector);
-                   
-                    Debug.Log(refractedVector2);
-                    ray = new Ray(hit2.point, refractedVector2); // cast new ray that leaves the cube
+                    if (refractedVector2.x == 0 && refractedVector2.y == 0 && refractedVector2.z == 0)
+                    {
+                        ray = new Ray(hit2.point, Vector3.Reflect(ray.direction, hit2.normal)); // cast new ray that leaves the cube
+                        newRayStartPos = ray.GetPoint(0.3f);
+                        Ray ray3 = new Ray(newRayStartPos, -ray.direction);
 
+                        RaycastHit hit3;
+
+                        if (Physics.Raycast(ray3, out hit3, 0.3f, layerMaskRefract))
+                        {
+                            lineRenderer.positionCount += 1;
+                            lineRenderer.SetPosition(lineRenderer.positionCount - 1, hit3.point);
+                            Debug.Log("yes");
+
+                        }
+                        Vector3 refractedVector3 = Refract(n2, n1, -hit3.normal, ray.direction);
+                        ray = new Ray(hit3.point, refractedVector3); // cast new ray that leaves the cube
+                    }
+                    else
+                    {
+                        ray = new Ray(hit2.point, refractedVector2); // cast new ray that leaves the cube
+                    }
                 }
                 if (hit.transform.tag == "Target")
                 {

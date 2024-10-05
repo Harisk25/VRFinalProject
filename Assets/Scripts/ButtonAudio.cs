@@ -38,6 +38,7 @@ public class ButtonAudio : MonoBehaviour
         // Move to the next clip in the array
         currentClipIndex++;
 
+    
         // Optional: Loop the audio back to the first clip after the last one plays
         if (currentClipIndex >= audioClips.Length)
         {

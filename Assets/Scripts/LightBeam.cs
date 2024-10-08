@@ -94,7 +94,6 @@ public class LightBeam : MonoBehaviour
                         {
                             lineRenderer.positionCount += 1;
                             lineRenderer.SetPosition(lineRenderer.positionCount - 1, hit3.point);
-                            Debug.Log("yes");
 
                         }
                         Vector3 refractedVector3 = Refract(n2, n1, -hit3.normal, ray.direction);

@@ -31,16 +31,17 @@ public class ButtonAudio : MonoBehaviour
         // Set the current audio clip to the AudioSource
         audioSource.clip = audioClips[currentClipIndex];
         audioSource.Play();
+        // Move to the next clip in the array
+        currentClipIndex++;
 
         // Wait for the current clip to finish playing
         yield return new WaitForSeconds(audioSource.clip.length);
 
-        // Move to the next clip in the array
-        currentClipIndex++;
+        
 
     
         // Optional: Loop the audio back to the first clip after the last one plays
-        if (currentClipIndex >= audioClips.Length)
+        if (currentClipIndex > audioClips.Length)
         {
             currentClipIndex = 0;
         }

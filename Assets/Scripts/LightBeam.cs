@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class LightBeam : MonoBehaviour
 {
-
     [Header("Light Beam Settings")]
     public LayerMask layerMask;
     public LayerMask layerMaskRefract;

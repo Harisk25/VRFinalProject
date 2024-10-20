@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18237056, g: 0.22805107, b: 0.30712, a: 1}
+  m_IndirectSpecularColor: {r: 0.18246506, g: 0.22817595, b: 0.3072547, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3605,6 +3605,10 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 606352452}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6515926818410642123, guid: 8c64e5375f8f49c43bf29bf95dcf6e6e,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1177603682}
     - targetCorrespondingSourceObject: {fileID: 5583473208344070987, guid: 8c64e5375f8f49c43bf29bf95dcf6e6e,
         type: 3}
       insertIndex: -1
@@ -3624,7 +3628,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 248530887}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1177603681}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 919e39492806b334982b6b84c90dd927, type: 3}
@@ -3636,7 +3640,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 248530887}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1177603681}
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2213c36610e3b1c4bbf886810ed9db12, type: 3}
@@ -16293,6 +16297,38 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da8d6c6ca953aa24a924db0a93d368ec, type: 3}
+--- !u!1 &1177603681 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6515926818410642123, guid: 8c64e5375f8f49c43bf29bf95dcf6e6e,
+    type: 3}
+  m_PrefabInstance: {fileID: 248530887}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1177603682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1177603681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74492648e6ad82d4cbbf3ca3e664d8a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHeight: {fileID: 246656772}
+  rightControllerJoyStick:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Right Controller Joy Stick
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 8897e061-336b-4fd7-a0f9-12827a708516
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: -6493913391331992944, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
 --- !u!1 &1188018681
 GameObject:
   m_ObjectHideFlags: 0
@@ -19970,7 +20006,7 @@ PrefabInstance:
         type: 3}
       propertyPath: showButton.m_Reference
       value: 
-      objectReference: {fileID: -9162560694521896386, guid: c348712bda248c246b8c49b3db54643f,
+      objectReference: {fileID: -1440112947422450937, guid: c348712bda248c246b8c49b3db54643f,
         type: 3}
     - target: {fileID: 4207409681253212145, guid: bdddc9fbdb63b1544b22db61cd853e37,
         type: 3}

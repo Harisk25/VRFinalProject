@@ -14,7 +14,7 @@ public class HeightAdjust : MonoBehaviour
     {
         if (rightControllerJoyStick.action.ReadValue<Vector2>().y <= -0.8 || rightControllerJoyStick.action.ReadValue<Vector2>().y >= 0.8)
         {
-            if (rightControllerJoyStick.action.ReadValue<Vector2>().y <= -0.8 && playerHeight.position.y >= -1.0)
+            if (rightControllerJoyStick.action.ReadValue<Vector2>().y <= -0.8 && playerHeight.position.y >= -0.5)
             {   
                 playerHeight.position += new Vector3(0, ((float)0.01) * -1, 0);
             }else if (rightControllerJoyStick.action.ReadValue<Vector2>().y >= 0.8 && playerHeight.position.y <= 0.5)

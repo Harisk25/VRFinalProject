@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.InputSystem;
 
 public class HeightAdjust : MonoBehaviour
 {
     public Transform playerHeight;
+    public Slider slider;
     public InputActionProperty rightControllerJoyStick;
 
 
@@ -21,6 +23,7 @@ public class HeightAdjust : MonoBehaviour
             {
                 playerHeight.position += new Vector3(0, ((float)0.01), 0);
             }
+            slider.value = playerHeight.position.y; // update display value
         }
     }
 }

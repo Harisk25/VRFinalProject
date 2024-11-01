@@ -18194,7 +18194,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1193088935}
   door: {fileID: 974256655}
-  doorOpenSound: {fileID: 8300000, guid: 446bb9e369c6842558facd3617800829, type: 3}
+  doorOpenSound: {fileID: 8300000, guid: 882cc8b92c9b44d59b45bf97815654e0, type: 3}
 --- !u!82 &1193088941
 AudioSource:
   m_ObjectHideFlags: 0
@@ -18205,7 +18205,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 446bb9e369c6842558facd3617800829, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 882cc8b92c9b44d59b45bf97815654e0, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -31209,7 +31209,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 2121278447}
   door: {fileID: 1755841536}
-  doorOpenSound: {fileID: 8300000, guid: 446bb9e369c6842558facd3617800829, type: 3}
+  doorOpenSound: {fileID: 8300000, guid: 882cc8b92c9b44d59b45bf97815654e0, type: 3}
 --- !u!82 &2121278453
 AudioSource:
   m_ObjectHideFlags: 0
@@ -31220,7 +31220,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 446bb9e369c6842558facd3617800829, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 882cc8b92c9b44d59b45bf97815654e0, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

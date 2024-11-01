@@ -23,7 +23,7 @@ public class ButtonAudio : MonoBehaviour
 
         // THE ISSUE IS BECAUSE THE WELCOME IS  NOT IN ARRAY, SO INDEX 0 IS ACTUALLY INSTRUCT1 
         // SIMPLE FIX IS TO PUT WELCOME AT 0 AND START ARRAY AT 1
-        currentClipIndex--; // its not subtracting here
+        currentClipIndex = currentClipIndex - 2; // its not subtracting here
         Debug.Log(currentClipIndex);
             
         StartCoroutine(PlayAudioSequence());

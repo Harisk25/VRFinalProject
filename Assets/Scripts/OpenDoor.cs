@@ -29,23 +29,24 @@ public class OpenDoor : MonoBehaviour
         {
             if (door != null)
             {
-                // Play the sound effect before destroying the door
+                /* Play the sound effect before destroying the door
                 if (audioSource != null && doorOpenSound != null)
                 {
                     audioSource.Play();
                 }
+                */
                 
                 // Use a coroutine to delay the destruction until the sound finishes playing
-                StartCoroutine(DestroyDoorAfterSound());
+                DestroyDoorAfterSound();
             }
         }
     }
 
-    private IEnumerator DestroyDoorAfterSound()
+    public void DestroyDoorAfterSound()
     {
         if (audioSource != null)
         {
-            yield return new WaitForSeconds(audioSource.clip.length);
+            audioSource.Play();
         }
         Destroy(door);
     }

@@ -19,14 +19,16 @@ public class ButtonAudio : MonoBehaviour
     {
 
         // Add your custom action here, e.g., load a scene, trigger animation, etc.
-        Debug.Log(currentClipIndex);
+        //Debug.Log(currentClipIndex);
 
         // THE ISSUE IS BECAUSE THE WELCOME IS  NOT IN ARRAY, SO INDEX 0 IS ACTUALLY INSTRUCT1 
         // SIMPLE FIX IS TO PUT WELCOME AT 0 AND START ARRAY AT 1
-        currentClipIndex = currentClipIndex - 2; // its not subtracting here
-        Debug.Log(currentClipIndex);
+        if (currentClipIndex > -1) {
+            currentClipIndex = currentClipIndex - 2; // its not subtracting here
+            //Debug.Log(currentClipIndex);
             
-        StartCoroutine(PlayAudioSequence());
+            StartCoroutine(PlayAudioSequence());
+        }
             
         
         
@@ -58,6 +60,13 @@ public class ButtonAudio : MonoBehaviour
 
     IEnumerator PlayAudioSequence()
     {
+
+        // Optional: Loop the audio back to the first clip after the last one plays
+        if (currentClipIndex > audioClips.Length)
+        {
+            yield break;
+        }
+
         // Set the current audio clip to the AudioSource
         audioSource.clip = audioClips[currentClipIndex];
         audioSource.Play();
@@ -71,10 +80,6 @@ public class ButtonAudio : MonoBehaviour
         
 
     
-        // Optional: Loop the audio back to the first clip after the last one plays
-        if (currentClipIndex > audioClips.Length)
-        {
-            currentClipIndex = 0;
-        }
+        
     }
 }

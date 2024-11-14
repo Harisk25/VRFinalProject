@@ -121,7 +121,7 @@ public class LightBeam : MonoBehaviour
         }
     }
 
-    public static Vector3 Refract(float RI1, float RI2, Vector3 surfNorm, Vector3 incident)
+    public static Vector3 Refract(float n1, float n2, Vector3 surfNorm, Vector3 incident)
     {
         //RI1 is refractive index of the current medium that the line is in and RI2 is the entering medium's refractive index.
         //Need to preform Vector/Matrix calucation to get proper refraction as unity cannot get angles.
@@ -129,6 +129,6 @@ public class LightBeam : MonoBehaviour
         surfNorm.Normalize(); //should already be normalized, but normalize just to be sure
         incident.Normalize();
 
-        return (RI1 / RI2 * Vector3.Cross(surfNorm, Vector3.Cross(-surfNorm, incident)) - surfNorm * Mathf.Sqrt(1 - Vector3.Dot(Vector3.Cross(surfNorm, incident) * (RI1 / RI2 * RI1 / RI2), Vector3.Cross(surfNorm, incident)))).normalized;
+        return (n1 / n2 * Vector3.Cross(surfNorm, Vector3.Cross(-surfNorm, incident)) - surfNorm * Mathf.Sqrt(1 - Vector3.Dot(Vector3.Cross(surfNorm, incident) * (n1 / n2 * n1 / n2), Vector3.Cross(surfNorm, incident)))).normalized;
     }
 }

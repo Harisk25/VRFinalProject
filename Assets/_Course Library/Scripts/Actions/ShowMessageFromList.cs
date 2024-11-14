@@ -17,7 +17,7 @@ public class ShowMessageFromList : MonoBehaviour
     [Tooltip("The list of messages that are shown")]
     [TextArea] public List<string> messages = new List<string>();
 
-    private int index = 0;
+    public int index = 0;
 
     private void Start()
     {

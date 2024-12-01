@@ -13,6 +13,7 @@ public class ShowMessageFromList : MonoBehaviour
 
     // What happens once the list is completed
     public UnityEvent OnComplete = new UnityEvent();
+    public UnityEvent OnIndex12 = new UnityEvent();
 
     [Tooltip("The list of messages that are shown")]
     [TextArea] public List<string> messages = new List<string>();
@@ -31,6 +32,12 @@ public class ShowMessageFromList : MonoBehaviour
         if (newIndex < index)
         {
             OnComplete.Invoke();
+        } 
+        else if (index == 12)
+        {  
+            OnIndex12.Invoke();
+            ShowMessage();
+
         }
         else
         {

@@ -10,6 +10,8 @@ public class finalSound : MonoBehaviour
 
     private AudioSource audioSource;
 
+    private int playOnce = 0;
+
     void Start()
     {
         // Get the AudioSource component from the target (this object)
@@ -27,8 +29,11 @@ public class finalSound : MonoBehaviour
     {
         if (target.transform.GetComponent<Renderer>().material.color.Equals(Color.green))
         {
-           
-            playSound();
+
+            if (playOnce == 0)
+            {
+                playSound();
+            }
 
         }
     }
@@ -39,6 +44,7 @@ public class finalSound : MonoBehaviour
         {
             audioSource.Play();
         }
+        playOnce = 1;
         
     }
 }

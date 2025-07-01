@@ -6,6 +6,8 @@ public class OpenDoor : MonoBehaviour
 {
     public GameObject target;
     public GameObject door;
+    public GameObject nextTutorialScreen;
+    public GameObject currentTutorialScreen;
     public AudioClip doorOpenSound; // Assign the sound effect in the Inspector
 
     private AudioSource audioSource;
@@ -49,5 +51,7 @@ public class OpenDoor : MonoBehaviour
             audioSource.Play();
         }
         Destroy(door);
+        nextTutorialScreen.SetActive(true);
+        currentTutorialScreen.SetActive(false);
     }
 }

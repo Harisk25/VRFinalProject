@@ -6,6 +6,7 @@ public class ShowCredit : MonoBehaviour
 {
     public GameObject target;
     public GameObject credits;
+    public GameObject blackBoardText;
     private bool firstTime = false; // This makes sure we only make the credits visible after the target goes green for the first time
 
     // Update is called once per frame
@@ -17,6 +18,7 @@ public class ShowCredit : MonoBehaviour
          if(firstTime == false)
             {
                 credits.SetActive(true);
+                blackBoardText.SetActive(false);
                 firstTime = true;
             }
          

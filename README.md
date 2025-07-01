@@ -1,4 +1,4 @@
-# VRFinalProject
+# Physic Optic Lab Simulation
  
 <b>This project was part of my Capstone project for my computer science degree. A paper was written which was focused on this project's development and the pilot study done after the development. The paper has since been published at iLRN 11th International Conference of the Immersive Learning Research Network, and you can watch the paper presentation [here](https://www.youtube.com/watch?v=VyETcYL4Orw&list=PLKNj_u8IflVGLg8gduvsoShDAp3FIimMw&index=53) and read the paper [here](https://publications.immersivelrn.org/index.php/practitioner/article/view/411). </b>
 
